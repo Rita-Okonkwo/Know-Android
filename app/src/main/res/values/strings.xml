@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Know</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcomeText">Welcome to</string>
+    <string name="start">Start Quiz</string>
+    <string name="loseText">Sorry, your scores came\ncrashing down</string>
+    <string name="score_text">20%</string>
+    <string name="win_text">Eureka! you\'re on a roll\ngood job!</string>
+    <string name="image_for_win_page">image for win page</string>
+    <string name="play_again">Play Again</string>
+    <string name="try_again">Try Again</string>
+</resources>
