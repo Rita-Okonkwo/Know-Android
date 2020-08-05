@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="url"
+            type="String" />
+        <variable
+            name="callback"
+            type="com.project.know.ui.videoui.VideoStateChange" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/video_item_constraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <FrameLayout
+            android:id="@+id/playerviewContainer"
+            android:layout_width="315dp"
+            android:layout_height="160dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/ep_video_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:video_url="@{url}"
+                app:on_state_change="@{callback}"
+                app:resize_mode="fit"
+                app:surface_type="texture_view"
+                app:use_controller="false" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/video_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/test_description"
+            android:textAlignment="viewStart"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@+id/playerviewContainer"
+            app:layout_constraintStart_toStartOf="@+id/playerviewContainer"
+            app:layout_constraintTop_toBottomOf="@+id/playerviewContainer" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

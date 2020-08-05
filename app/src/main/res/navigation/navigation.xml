@@ -3,10 +3,58 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    app:startDestination="@id/winFragment">
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.project.know.ui.homeui.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_homeFragment_to_videoListFragment"
+            app:destination="@id/videoListFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/questionFragment"
+        android:name="com.project.know.ui.questionui.QuestionFragment"
+        android:label="fragment_question"
+        tools:layout="@layout/fragment_question" >
+        <action
+            android:id="@+id/action_questionFragment_to_loseFragment"
+            app:destination="@id/loseFragment" />
+        <action
+            android:id="@+id/action_questionFragment_to_winFragment"
+            app:destination="@id/winFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoListFragment"
+        android:name="com.project.know.ui.videoui.VideoListFragment"
+        android:label="fragment_video_list"
+        tools:layout="@layout/fragment_video_list" />
+    <fragment
+        android:id="@+id/loseFragment"
+        android:name="com.project.know.ui.loseui.LoseFragment"
+        android:label="fragment_lose"
+        tools:layout="@layout/fragment_lose" />
     <fragment
         android:id="@+id/winFragment"
-        android:name="com.project.know.WinFragment"
+        android:name="com.project.know.ui.winui.WinFragment"
         android:label="fragment_win"
         tools:layout="@layout/fragment_win" />
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.project.know.ui.welcomeui.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_questionFragment"
+            app:destination="@id/questionFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/aboutFragment2"
+        android:name="com.project.know.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_about" />
 </navigation>

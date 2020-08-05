@@ -1,79 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context=".WinFragment">
+    tools:context=".ui.winui.WinFragment">
 
+    <data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/winConstraintLayout"
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/colorPrimary">
 
-        <TextView
-            android:id="@+id/win_text"
-            android:layout_width="wrap_content"
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/winConstraintLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="100dp"
-            android:fontFamily="@font/raleway_medium"
-            android:text="@string/win_text"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#444053"
-            android:textSize="21sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="@color/colorPrimary">
 
-        <TextView
-            android:id="@+id/score_text"
-            android:layout_width="168dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="100dp"
-            android:fontFamily="@font/raleway_medium"
-            android:text="@string/score_text"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#3F3D56"
-            android:textSize="61sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/win_text" />
+            <TextView
+                android:id="@+id/win_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="100dp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/win_text"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#444053"
+                android:textSize="21sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/win_picture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="100dp"
-            android:contentDescription="@string/image_for_win_page"
-            android:src="@drawable/winpicture"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/score_text" />
+            <TextView
+                android:id="@+id/score_text"
+                android:layout_width="168dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="100dp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/score_text"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#3F3D56"
+                android:textSize="61sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/win_text" />
 
-        <Button
-            android:id="@+id/playAgain"
-            style="@style/Widget.Know.Button"
-            android:layout_width="161dp"
-            android:layout_height="58dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="100dp"
-            android:fontFamily="@font/raleway_medium"
-            android:text="@string/play_again"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/win_picture" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+            <ImageView
+                android:id="@+id/win_picture"
+                android:layout_width="255dp"
+                android:layout_height="152dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="100dp"
+                android:layout_marginBottom="30dp"
+                android:contentDescription="@string/image_for_win_page"
+                android:src="@drawable/winpicture"
+                app:layout_constraintBottom_toTopOf="@+id/playAgain"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/score_text" />
+
+            <Button
+                android:id="@+id/playAgain"
+                style="@style/Widget.Know.Button"
+                android:layout_width="161dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="100dp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/play_again"
+                android:accessibilityLiveRegion="polite"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/win_picture" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

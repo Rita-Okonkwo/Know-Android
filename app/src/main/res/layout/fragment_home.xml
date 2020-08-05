@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.homeui.HomeFragment">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/homeConstraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="200dp"
+                android:layout_marginBottom="50dp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/home_welcome"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/frameCard"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/frameCard"
+                style="Widget.MaterialComponents.CardView"
+                android:layout_width="0dp"
+                android:layout_height="105dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="50dp"
+                app:cardBackgroundColor="#0A6E66"
+                android:accessibilityLiveRegion="polite"
+                app:cardCornerRadius="5dp"
+                app:contentPadding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/frameConstraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#0A6E66">
+
+                    <ImageView
+                        android:id="@+id/reminder_image"
+                        android:layout_width="113dp"
+                        android:layout_height="73dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:src="@drawable/reminderimage"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/reminder_text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/showing_text_for_users_to_set_up_a_reminder_this_should_be_clicked" />
+
+                    <TextView
+                        android:id="@+id/reminder_text"
+                        android:layout_width="113dp"
+                        android:layout_height="73dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/reminder_text"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toEndOf="@+id/reminder_image"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/videoCard"
+                style="Widget.MaterialComponents.CardView"
+                android:layout_width="0dp"
+                android:layout_height="105dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="50dp"
+                app:cardBackgroundColor="#0A6E66"
+                android:accessibilityLiveRegion="polite"
+                app:cardCornerRadius="5dp"
+                app:contentPadding="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/frameCard">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/videoConstraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#0A6E66">
+
+                    <ImageView
+                        android:id="@+id/video_image"
+                        android:layout_width="113dp"
+                        android:layout_height="73dp"
+                        android:src="@drawable/videosimage"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/video_text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/showing_image_with_videos_this_should_be_clicked" />
+
+                    <TextView
+                        android:id="@+id/video_text"
+                        android:layout_width="113dp"
+                        android:layout_height="73dp"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/videos_text"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/video_image"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/quizCard"
+                style="Widget.MaterialComponents.CardView"
+                android:layout_width="0dp"
+                android:layout_height="105dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="50dp"
+                app:cardBackgroundColor="#0A6E66"
+                android:accessibilityLiveRegion="polite"
+                app:cardCornerRadius="5dp"
+                app:contentPadding="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/videoCard">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/quizConstraint"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#0A6E66">
+
+                    <ImageView
+                        android:id="@+id/quiz_image"
+                        android:layout_width="113dp"
+                        android:layout_height="73dp"
+                        android:src="@drawable/quizimage"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/quiz_text"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:contentDescription="@string/howing_quiz_image_this_should_be_clicked" />
+
+                    <TextView
+                        android:id="@+id/quiz_text"
+                        android:layout_width="113dp"
+                        android:layout_height="73dp"
+                        android:layout_marginStart="8dp"
+                        android:fontFamily="@font/poppins_medium"
+                        android:text="@string/play_quiz_text"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                        android:textColor="#FFFFFF"
+                        android:textSize="15sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toEndOf="@+id/quiz_image"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

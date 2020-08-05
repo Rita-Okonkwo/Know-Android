@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.videoui.VideoListFragment">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/listConstraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#EAFFFD">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="99dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:src="@drawable/knowwelcome"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/know_image" />
+
+        <TextView
+            android:id="@+id/video_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/video_text"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/video_recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/video_text" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

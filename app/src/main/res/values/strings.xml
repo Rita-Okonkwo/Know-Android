@@ -1,8 +1,5 @@
 <resources>
     <string name="app_name">Know</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="welcomeText">Welcome to</string>
     <string name="start">Start Quiz</string>
     <string name="loseText">Sorry, your scores came\ncrashing down</string>
     <string name="score_text">20%</string>
@@ -10,4 +7,23 @@
     <string name="image_for_win_page">image for win page</string>
     <string name="play_again">Play Again</string>
     <string name="try_again">Try Again</string>
+    <string name="test_question">Which of the following is not a pre-cautionary measure against covid 19?</string>
+    <string name="test_answer_1">A.\u0020\u0020\u0020\u0020Periodic Hand Washing</string>
+    <string name="next_text">Next</string>
+    <string name="home_welcome">Welcome!\nHere are ways to get started:</string>
+    <string name="reminder_text">Set up prevention\nreminder</string>
+    <string name="videos_text">Watch\nawareness\nvideos</string>
+    <string name="play_quiz_text">Play Quiz</string>
+    <string name="test_description">The Covid-19 pandemic: What you should know!</string>
+    <string name="video_text">Learn Covid-19 precautionary\nmeasures through these videos\ncurated just for you!</string>
+    <string name="a_woman_holding_a_question_sign">A woman holding a question sign</string>
+    <string name="welcome_to_know">Welcome to Know</string>
+    <string name="about">About</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="showing_text_for_users_to_set_up_a_reminder_this_should_be_clicked">Showing reminder Image. This should be clicked</string>
+    <string name="showing_image_with_videos_this_should_be_clicked">Showing Image with videos. This should be clicked</string>
+    <string name="howing_quiz_image_this_should_be_clicked">Howing quiz image. This should be clicked.</string>
+    <string name="loseImage">Shows man viewing a declining chart. This is the lose image</string>
+    <string name="know_image">Know Image</string>
 </resources>

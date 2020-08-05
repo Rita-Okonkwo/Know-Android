@@ -1,77 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context=".LoseFragment">
+    tools:context=".ui.loseui.LoseFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/loseConstraintLayout"
+    <data>
+
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/colorPrimary">
 
-        <TextView
-            android:id="@+id/loseText"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/loseConstraintLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="100dp"
-            android:fontFamily="@font/raleway_medium"
-            android:text="@string/loseText"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#444053"
-            android:textSize="21sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="@color/colorPrimary">
 
-        <TextView
-            android:id="@+id/score_text"
-            android:layout_width="168dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="100dp"
-            android:fontFamily="@font/raleway_medium"
-            android:text="@string/score_text"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#E80E0E"
-            android:textSize="61sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loseText" />
+            <TextView
+                android:id="@+id/loseText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="100dp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/loseText"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#444053"
+                android:textSize="21sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:id="@+id/fail_picture"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="100dp"
-            android:src="@drawable/failpicture"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/score_text" />
+            <TextView
+                android:id="@+id/score_text"
+                android:layout_width="168dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="100dp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/score_text"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#E80E0E"
+                android:textSize="61sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/loseText" />
 
-        <Button
-            android:id="@+id/tryAgain"
-            style="@style/Widget.Know.Button"
-            android:layout_width="161dp"
-            android:layout_height="58dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="100dp"
-            android:fontFamily="@font/raleway_medium"
-            android:text="@string/try_again"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/fail_picture" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+            <ImageView
+                android:id="@+id/fail_picture"
+                android:layout_width="255dp"
+                android:layout_height="152dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="100dp"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/failpicture"
+                app:layout_constraintBottom_toTopOf="@+id/tryAgain"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/score_text"
+                android:contentDescription="@string/loseImage" />
+
+            <Button
+                android:id="@+id/tryAgain"
+                style="@style/Widget.Know.Button"
+                android:layout_width="161dp"
+                android:layout_height="58dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="100dp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/try_again"
+                android:accessibilityLiveRegion="polite"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/fail_picture" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

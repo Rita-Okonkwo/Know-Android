@@ -1,68 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context=".WelcomeFragment">
+    tools:context=".ui.welcomeui.WelcomeFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/welcomeConstraintLayout"
+    <data>
+
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:background="@color/colorPrimary">
 
-        <TextView
-            android:id="@+id/welcomeText"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/welcomeConstraintLayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="100dp"
-            android:fontFamily="@font/raleway_medium"
-            android:text="@string/welcomeText"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="#444053"
-            android:textSize="25sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:background="@color/colorPrimary">
 
-        <ImageView
-            android:id="@+id/know_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="84dp"
-            android:layout_marginEnd="52dp"
-            android:src="@drawable/knowwelcome"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.083"
-            app:layout_constraintStart_toEndOf="@+id/welcomeText"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/questionSignImage"
+                android:layout_width="0dp"
+                android:layout_height="256dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginEnd="50dp"
+                android:src="@drawable/knowquestionimage"
+                app:layout_constraintBottom_toTopOf="@+id/startQuiz"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcome_text"
+                android:contentDescription="@string/a_woman_holding_a_question_sign" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="307dp"
-            android:layout_height="256dp"
-            android:layout_marginTop="40dp"
-            android:src="@drawable/knowquestionimage"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/know_image" />
+            <Button
+                android:id="@+id/startQuiz"
+                style="@style/Widget.Know.Button"
+                android:layout_width="180dp"
+                android:layout_height="62dp"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="100dp"
+                android:layout_marginBottom="100dp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/start"
+                android:accessibilityLiveRegion="polite"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/questionSignImage" />
 
-        <Button
-            android:id="@+id/startQuiz"
-            style="@style/Widget.Know.Button"
-            android:layout_width="180dp"
-            android:layout_height="62dp"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="100dp"
-            android:layout_marginEnd="100dp"
-            android:fontFamily="@font/raleway_medium"
-            android:text="@string/start"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+            <TextView
+                android:id="@+id/welcome_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginEnd="50dp"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/welcome_to_know"
+                android:textAlignment="center"
+                android:textColor="#444053"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:typeface="normal"
+                app:layout_constraintBottom_toTopOf="@+id/questionSignImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
