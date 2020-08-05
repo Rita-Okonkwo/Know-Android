@@ -118,7 +118,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/third_answer" />
 
             <Button
-                android:id="@+id/startQuiz"
+                android:id="@+id/next"
                 style="@style/Widget.Know.Button"
                 android:layout_width="180dp"
                 android:layout_height="62dp"

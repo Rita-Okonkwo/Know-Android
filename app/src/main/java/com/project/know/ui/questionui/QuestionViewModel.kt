@@ -17,26 +17,19 @@ class QuestionViewModel : ViewModel(){
     val _questionIndex = MutableLiveData<Int>()
     val questionIndex : LiveData<Int>
         get() = _questionIndex
-    val _nextQuestion = MutableLiveData<Boolean>()
-    val nextQuestion : LiveData<Boolean>
-        get() = _nextQuestion
+    var nextQuestion : Boolean = true
     init {
         _questionIndex.value = 0
-        _nextQuestion.value = false
     }
 
-    fun clickNextBtn(){
-        _nextQuestion.value = true
-    }
-
-    fun doneClickNext() {
-        _nextQuestion.value = false
-    }
 
     fun updateIndex(){
-        if (_questionIndex.value!! < questions.value!!.size){
-            _questionIndex.value?.plus(1)
+        if (_questionIndex.value!! != questions.value!!.size){
+            _questionIndex.value = _questionIndex.value?.plus(1)
+        } else {
+            nextQuestion = false
         }
+
     }
 
 }
