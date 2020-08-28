@@ -13,6 +13,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.project.know.R
 import com.project.know.databinding.FragmentQuestionBinding
 import org.w3c.dom.Text
@@ -28,21 +30,41 @@ class QuestionFragment : Fragment() {
     private lateinit var questionBinding: FragmentQuestionBinding
     val questionViewModel: QuestionViewModel by viewModels()
     private lateinit var answers: List<Answer>
+    var scores = 0
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         questionBinding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_question, container, false)
-        
+                DataBindingUtil.inflate(inflater, R.layout.fragment_question, container, false)
+
+        questionBinding.lifecycleOwner = this
+        questionBinding.viewModel = questionViewModel
+
         questionViewModel.questions.observe(viewLifecycleOwner, Observer { questions ->
             setQuestion(questions)
             questionBinding.next.setOnClickListener {
                 questionViewModel.updateIndex()
-                setQuestion(questions)
+            }
+        })
+
+        questionViewModel.score.observe(viewLifecycleOwner, Observer { score ->
+            questionBinding.scoreValue.text = score.toString()
+            scores = score
+        })
+
+        questionViewModel.time.observe(viewLifecycleOwner, Observer { time ->
+            questionBinding.timeValue.text = time.toString()
+        })
+
+        questionViewModel.gameFinished.observe(viewLifecycleOwner, Observer { finished ->
+            if (finished && scores < 50) {
+                view?.findNavController()?.navigate(QuestionFragmentDirections.actionQuestionFragmentToLoseFragment(scores))
+            } else if (finished && scores >= 50) {
+                view?.findNavController()?.navigate(QuestionFragmentDirections.actionQuestionFragmentToWinFragment(scores))
             }
         })
 
@@ -50,35 +72,33 @@ class QuestionFragment : Fragment() {
     }
 
     private fun setQuestion(questions: List<QuestionsItem>) {
-
-
         questionViewModel.questionIndex.observe(viewLifecycleOwner, Observer { questionIndex ->
             if (questionIndex == questions.size) {
-                Toast.makeText(context, "End", Toast.LENGTH_SHORT).show()
+                questionViewModel.gameFinished()
             } else {
                 questionBinding.firstAnswer.setBackgroundColor(
-                    ContextCompat.getColor(
-                        requireContext(),
-                        R.color.textViewColor
-                    )
+                        ContextCompat.getColor(
+                                requireContext(),
+                                R.color.textViewColor
+                        )
                 )
                 questionBinding.secondAnswer.setBackgroundColor(
-                    ContextCompat.getColor(
-                        requireContext(),
-                        R.color.textViewColor
-                    )
+                        ContextCompat.getColor(
+                                requireContext(),
+                                R.color.textViewColor
+                        )
                 )
                 questionBinding.thirdAnswer.setBackgroundColor(
-                    ContextCompat.getColor(
-                        requireContext(),
-                        R.color.textViewColor
-                    )
+                        ContextCompat.getColor(
+                                requireContext(),
+                                R.color.textViewColor
+                        )
                 )
                 questionBinding.fourthAnswer.setBackgroundColor(
-                    ContextCompat.getColor(
-                        requireContext(),
-                        R.color.textViewColor
-                    )
+                        ContextCompat.getColor(
+                                requireContext(),
+                                R.color.textViewColor
+                        )
                 )
                 questionBinding.question.text = questions[questionIndex].question
                 answers = questions[questionIndex].answers
@@ -97,6 +117,7 @@ class QuestionFragment : Fragment() {
         questionBinding.firstAnswer.setOnClickListener {
             if (answers[0].correct) {
                 it.setBackgroundColor(Color.GREEN)
+                questionViewModel.updateScore()
             } else {
                 it.setBackgroundColor(Color.RED)
                 when {
@@ -119,6 +140,7 @@ class QuestionFragment : Fragment() {
         questionBinding.secondAnswer.setOnClickListener {
             if (answers[1].correct) {
                 it.setBackgroundColor(Color.GREEN)
+                questionViewModel.updateScore()
             } else {
                 it.setBackgroundColor(Color.RED)
                 when {
@@ -140,6 +162,7 @@ class QuestionFragment : Fragment() {
 
         questionBinding.thirdAnswer.setOnClickListener {
             if (answers[2].correct) {
+                questionViewModel.updateScore()
                 it.setBackgroundColor(Color.GREEN)
             } else {
                 it.setBackgroundColor(Color.RED)
@@ -163,6 +186,7 @@ class QuestionFragment : Fragment() {
         questionBinding.fourthAnswer.setOnClickListener {
             if (answers[3].correct) {
                 it.setBackgroundColor(Color.GREEN)
+                questionViewModel.updateScore()
             } else {
                 it.setBackgroundColor(Color.RED)
                 when {

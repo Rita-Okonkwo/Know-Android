@@ -9,8 +9,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import com.project.know.R
 import com.project.know.databinding.FragmentWelcomeBinding
-import com.project.know.ui.homeui.HomeFragmentDirections
-
 
 /**
  * @author: Rita Okonkwo
@@ -19,12 +17,11 @@ import com.project.know.ui.homeui.HomeFragmentDirections
  */
 class WelcomeFragment : Fragment() {
 
-
-    private lateinit var welcomeBinding : FragmentWelcomeBinding
+    private lateinit var welcomeBinding: FragmentWelcomeBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater, container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         welcomeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_welcome, container, false)

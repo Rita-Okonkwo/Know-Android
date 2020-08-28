@@ -5,7 +5,9 @@
     tools:context=".ui.questionui.QuestionFragment">
 
     <data>
-
+        <variable
+            name="viewModel"
+            type="com.project.know.ui.questionui.QuestionViewModel" />
     </data>
 
     <ScrollView
@@ -24,15 +26,13 @@
                 android:layout_width="99dp"
                 android:layout_height="57dp"
                 android:layout_marginStart="100dp"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="50dp"
                 android:layout_marginEnd="100dp"
-                android:layout_marginBottom="100dp"
+                android:contentDescription="@string/know_image"
                 android:src="@drawable/knowwelcome"
-                app:layout_constraintBottom_toTopOf="@+id/question"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="@string/know_image" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/question"
@@ -42,14 +42,13 @@
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="50dp"
                 android:fontFamily="@font/raleway_medium"
-                android:text="@string/test_question"
                 android:textAlignment="viewStart"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#444053"
                 android:textSize="21sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+                app:layout_constraintTop_toBottomOf="@+id/scoreText" />
 
             <TextView
                 android:id="@+id/first_answer"
@@ -61,13 +60,13 @@
                 android:background="#DADADA"
                 android:fontFamily="@font/raleway_medium"
                 android:padding="8dp"
-                android:text="@string/test_answer_1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/question" />
+                app:layout_constraintTop_toBottomOf="@+id/question"
+                app:textVisible="@{viewModel.apiStatus}" />
 
             <TextView
                 android:id="@+id/second_answer"
@@ -77,13 +76,13 @@
                 android:background="#DADADA"
                 android:fontFamily="@font/raleway_medium"
                 android:padding="8dp"
-                android:text="@string/test_answer_1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/first_answer"
                 app:layout_constraintStart_toStartOf="@+id/first_answer"
-                app:layout_constraintTop_toBottomOf="@+id/first_answer" />
+                app:layout_constraintTop_toBottomOf="@+id/first_answer"
+                app:textVisible="@{viewModel.apiStatus}" />
 
             <TextView
                 android:id="@+id/third_answer"
@@ -93,13 +92,13 @@
                 android:background="#DADADA"
                 android:fontFamily="@font/raleway_medium"
                 android:padding="8dp"
-                android:text="@string/test_answer_1"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/second_answer"
                 app:layout_constraintStart_toStartOf="@+id/second_answer"
-                app:layout_constraintTop_toBottomOf="@+id/second_answer" />
+                app:layout_constraintTop_toBottomOf="@+id/second_answer"
+                app:textVisible="@{viewModel.apiStatus}" />
 
             <TextView
                 android:id="@+id/fourth_answer"
@@ -109,13 +108,12 @@
                 android:background="#DADADA"
                 android:fontFamily="@font/raleway_medium"
                 android:padding="8dp"
-                android:text="@string/test_answer_1"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#000000"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="@+id/third_answer"
                 app:layout_constraintStart_toStartOf="@+id/third_answer"
-                app:layout_constraintTop_toBottomOf="@+id/third_answer" />
+                app:layout_constraintTop_toBottomOf="@+id/third_answer"
+                app:textVisible="@{viewModel.apiStatus}" />
 
             <Button
                 android:id="@+id/next"
@@ -125,13 +123,77 @@
                 android:layout_marginStart="50dp"
                 android:layout_marginTop="32dp"
                 android:layout_marginEnd="50dp"
+                android:layout_marginBottom="32dp"
+                android:accessibilityLiveRegion="polite"
                 android:fontFamily="@font/raleway_medium"
                 android:text="@string/next_text"
-                android:accessibilityLiveRegion="polite"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/fourth_answer" />
+
+            <TextView
+                android:id="@+id/scoreText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/score"
+                android:textColor="#444053"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <TextView
+                android:id="@+id/scoreValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:textColor="#444053"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/scoreText"
+                app:layout_constraintStart_toEndOf="@+id/scoreText"
+                app:layout_constraintTop_toTopOf="@+id/scoreText" />
+
+            <TextView
+                android:id="@+id/timeValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="50dp"
+                android:text="@string/timeValue"
+                android:textColor="#444053"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+            <TextView
+                android:id="@+id/timeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/time"
+                android:textColor="#444053"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/timeValue"
+                app:layout_constraintEnd_toStartOf="@+id/timeValue"
+                app:layout_constraintTop_toTopOf="@+id/timeValue" />
+
+            <ImageView
+                android:id="@+id/status_image"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="50dp"
+                android:layout_marginBottom="32dp"
+                app:apiStatus="@{viewModel.apiStatus}"
+                app:layout_constraintBottom_toTopOf="@+id/next"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/scoreText"
+                tools:src="@tools:sample/avatars" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </layout>
