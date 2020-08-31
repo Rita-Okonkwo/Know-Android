@@ -1,54 +1,57 @@
 package com.project.know.ui.videoui
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.RequestManager
 import com.google.android.exoplayer2.Player
+import com.project.know.R
 import com.project.know.databinding.VideoItemBinding
+import kotlinx.android.synthetic.main.video_item.view.*
 
-class VideoRecyclerViewAdapter(val videoList:List<VideosItem>): RecyclerView.Adapter<VideoRecyclerViewAdapter.ViewHolder>(), VideoStateChange {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoRecyclerViewAdapter.ViewHolder {
-      return ViewHolder.from(parent)
+class VideoRecyclerViewAdapter(val videoList:List<VideosItem>): RecyclerView.Adapter<VideoRecyclerViewAdapter.VideoViewHolder>(), VideoStateChange {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoViewHolder {
+      return VideoViewHolder.from(parent)
     }
 
     override fun getItemCount(): Int {
         return videoList.size
     }
 
-    override fun onBindViewHolder(holder: VideoRecyclerViewAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: VideoViewHolder, position: Int) {
         with(holder.binding){
             videoDescription.text = videoList[position].description
-            url = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/SubaruOutbackOnStreetAndDirt.mp4"
+            url = videoList[position].video_url
             callback = this@VideoRecyclerViewAdapter
             executePendingBindings()
         }
     }
 
-    class ViewHolder(val binding: VideoItemBinding): RecyclerView.ViewHolder(binding.root){
+    class VideoViewHolder(val binding: VideoItemBinding): RecyclerView.ViewHolder(binding.root){
         companion object{
-            fun from(parent:ViewGroup): ViewHolder{
+            fun from(parent:ViewGroup): VideoViewHolder{
                 val layoutInflater = LayoutInflater.from(parent.context)
                 val binding = VideoItemBinding.inflate(layoutInflater, parent, false)
-                return ViewHolder(binding)
+                return VideoViewHolder(binding)
             }
         }
-
     }
 
     override fun onVideoDurationRetrieved(duration: Long, player: Player) {
-        TODO("Not yet implemented")
+
     }
 
     override fun onVideoBuffering(player: Player) {
-        TODO("Not yet implemented")
+
     }
 
     override fun onStartedPlaying(player: Player) {
-        TODO("Not yet implemented")
+
     }
 
     override fun onFinishedPlaying(player: Player) {
-        TODO("Not yet implemented")
+
     }
 }
