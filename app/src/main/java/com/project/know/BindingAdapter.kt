@@ -5,10 +5,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
-import com.google.android.exoplayer2.DefaultLoadControl
-import com.google.android.exoplayer2.DefaultRenderersFactory
-import com.google.android.exoplayer2.ExoPlayerFactory
-import com.google.android.exoplayer2.Player
+import com.google.android.exoplayer2.*
 import com.google.android.exoplayer2.source.ExtractorMediaSource
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.ui.PlayerView
@@ -67,13 +64,26 @@ fun bindStatusText(answerTextView: TextView, apiStatus: QuestionApiStatus) {
     }
 }
 
-@BindingAdapter("video_url", "on_state_change")
-fun PlayerView.loadVideo(url: String?, callback: VideoStateChange) {
+@BindingAdapter("video_url", "on_state_change", "viewModel")
+fun PlayerView.loadVideo(url: String?, callback: VideoStateChange, viewModel: VideoViewModel) {
     if (url == null) {
         return
     }
-    this.player = VideoViewModel().preparePlayer(url, context)
+    this.player = ExoPlayerFactory.newSimpleInstance(
+            DefaultRenderersFactory(context), DefaultTrackSelector(),
+            DefaultLoadControl()
+    )
+
+    this.player.playWhenReady = true
+    this.player.repeatMode = Player.REPEAT_MODE_ALL
+    // Provide url to load the video from here
+    val mediaSource = ExtractorMediaSource.Factory(
+            DefaultHttpDataSourceFactory("Demo")
+    ).createMediaSource(Uri.parse(url))
+
+    (this.player as SimpleExoPlayer?)?.prepare(mediaSource)
+    this.player.playWhenReady = false
     this.useController = true
-    VideoViewModel().set(this.player)
+    viewModel.preparePlayer(this.player)
 
 }

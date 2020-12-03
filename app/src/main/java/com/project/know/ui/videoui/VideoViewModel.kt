@@ -22,9 +22,7 @@ import java.lang.Exception
 enum class VideoApiStatus { LOADING, ERROR, DONE }
 class VideoViewModel : ViewModel() {
     val repository: KnowRepository = KnowRepository()
-    val _player = MutableLiveData<Player?>()
-    val player : LiveData<Player?>
-        get() = _player
+    var player : SimpleExoPlayer? = null
 
     private val _apiStatus = MutableLiveData<VideoApiStatus>()
     val apiStatus: LiveData<VideoApiStatus>
@@ -32,7 +30,6 @@ class VideoViewModel : ViewModel() {
 
     init {
         _apiStatus.value = VideoApiStatus.LOADING
-        _player.value = null
     }
 
     var videos: LiveData<List<VideosItem>>? = liveData(Dispatchers.IO) {
@@ -64,32 +61,14 @@ class VideoViewModel : ViewModel() {
         }
     }
 
-    fun preparePlayer(url : String, context : Context) : SimpleExoPlayer? {
-        val player = ExoPlayerFactory.newSimpleInstance(
-                DefaultRenderersFactory(context), DefaultTrackSelector(),
-                DefaultLoadControl()
-        )
-
-        player?.playWhenReady = true
-        player?.repeatMode = Player.REPEAT_MODE_ALL
-        // Provide url to load the video from here
-        val mediaSource = ExtractorMediaSource.Factory(
-                DefaultHttpDataSourceFactory("Demo")
-        ).createMediaSource(Uri.parse(url))
-
-        player?.prepare(mediaSource)
-        player?.playWhenReady = false
-        return player
-    }
-
-    fun set(bindPlay : Player) {
-        _player.value = bindPlay
+    fun preparePlayer(play: Player)   {
+        player = play as SimpleExoPlayer
     }
 
     override fun onCleared() {
+        Log.d("tag", "on clear")
         super.onCleared()
-        if (player.value != null) {
-            _player.value?.release()
-        }
+        player?.stop()
+        player?.release()
     }
 }

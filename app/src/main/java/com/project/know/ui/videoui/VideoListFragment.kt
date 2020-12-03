@@ -27,7 +27,6 @@ class VideoListFragment : Fragment() {
     val videoViewModel : VideoViewModel by viewModels()
 
     private lateinit var videoBinding : FragmentVideoListBinding
-    private var player: Player? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -39,13 +38,7 @@ class VideoListFragment : Fragment() {
         val recyclerview: RecyclerView = videoBinding.videoRecyclerView
         videoViewModel.videos?.observe(viewLifecycleOwner, Observer { videos ->
             if (videos != null) {
-                recyclerview.adapter = VideoRecyclerViewAdapter(videos)
-            }
-        })
-        videoViewModel.player.observe(viewLifecycleOwner, Observer {
-            play ->
-            if (play != null) {
-                player = play
+                recyclerview.adapter = VideoRecyclerViewAdapter(videos, videoViewModel)
             }
         })
         recyclerview.layoutManager = LinearLayoutManager(context)
@@ -54,15 +47,11 @@ class VideoListFragment : Fragment() {
 
     override fun onStop() {
         super.onStop()
-        Log.d("tag", "onstop")
-        player?.stop()
-        player?.release()
+
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        Log.d("tag", "ondestroy")
-        player?.stop()
-        player?.release()
+
     }
 }

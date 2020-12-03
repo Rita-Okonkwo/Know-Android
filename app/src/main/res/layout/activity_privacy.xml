@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            tools:context=".PrivacyActivity">
+
+            <ImageView
+                android:id="@+id/joinimg"
+                android:layout_width="314dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="86dp"
+                android:layout_marginTop="58dp"
+                android:layout_marginEnd="86dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/joinimg" />
+
+            <ImageView
+                android:id="@+id/privacyimg"
+                android:layout_width="423dp"
+                android:layout_height="218dp"
+                android:layout_marginTop="128dp"
+                app:layout_constraintBottom_toTopOf="@+id/personaldata"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/privacyimg" />
+
+            <ImageView
+                android:id="@+id/personaldata"
+                android:layout_width="172dp"
+                android:layout_height="13dp"
+                android:layout_marginStart="129dp"
+                android:layout_marginTop="350dp"
+                android:layout_marginEnd="129dp"
+                app:layout_constraintBottom_toTopOf="@+id/privacydesc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/personaldata" />
+
+            <ImageView
+                android:id="@+id/privacydesc"
+                android:layout_width="348dp"
+                android:layout_height="181dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="380dp"
+                android:layout_marginEnd="33dp"
+                app:layout_constraintBottom_toTopOf="@+id/accept"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/privacydesc" />
+
+            <Button
+                android:id="@+id/accept"
+                style="@style/Widget.Know.Button"
+                android:layout_width="149dp"
+                android:layout_height="53dp"
+                android:layout_marginStart="136dp"
+                android:layout_marginTop="577dp"
+                android:layout_marginEnd="136dp"
+                android:accessibilityLiveRegion="polite"
+                android:background="@drawable/btnbackground"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/accept"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toTopOf="@+id/cancel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/cancel"
+                android:layout_width="59dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="181dp"
+                android:layout_marginTop="665dp"
+                android:layout_marginEnd="181dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/cancel" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            tools:context=".registration.SignUpActivity">
+
+            <ImageView
+                android:id="@+id/headimg"
+                android:layout_width="0dp"
+                android:layout_height="204dp"
+                android:background="#2C6E49"
+                android:contentDescription="Image showing logo of brand, which is a lightbulb"
+                app:layout_constraintBottom_toTopOf="@+id/createaccount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0"
+                app:srcCompat="@drawable/headimg" />
+
+            <TextView
+                android:id="@+id/createaccount"
+                android:layout_width="342dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="270dp"
+                android:text="@string/createaccount"
+                android:textColor="#444053"
+                android:textSize="30sp"
+                app:fontFamily="@font/raleway_medium"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/already"
+                android:layout_width="244dp"
+                android:layout_height="19dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="333dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/already" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/email"
+                style="@style/Widget.Know.TextInputLayout"
+                android:layout_width="358dp"
+                android:layout_height="82dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="409dp"
+                android:layout_marginEnd="26dp"
+                android:hint="@string/enteremail"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/username"
+                style="@style/Widget.Know.TextInputLayout"
+                android:layout_width="358dp"
+                android:layout_height="82dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="493dp"
+                android:layout_marginEnd="26dp"
+                android:hint="@string/username"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.Know.TextInputLayout.InputText"
+                    android:textColor="#000000"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/password"
+                style="@style/Widget.Know.TextInputLayout"
+                android:layout_width="358dp"
+                android:layout_height="82dp"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="577dp"
+                android:layout_marginEnd="26dp"
+                android:hint="@string/enterpassword"
+                app:errorTextColor="#F33B3B"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:passwordToggleEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="@style/TextAppearance.Know.TextInputLayout.InputText"
+                    android:textColor="#000000" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/create"
+                style="@style/Widget.Know.Button"
+                android:layout_width="188dp"
+                android:layout_height="53dp"
+                android:layout_marginStart="113dp"
+                android:layout_marginTop="677dp"
+                android:layout_marginEnd="113dp"
+                android:layout_marginBottom="8dp"
+                android:accessibilityLiveRegion="polite"
+                android:background="@drawable/btnbackground"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/create"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

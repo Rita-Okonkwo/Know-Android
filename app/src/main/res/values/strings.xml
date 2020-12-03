@@ -29,4 +29,14 @@
     <string name="score">Score:</string>
     <string name="time">Time (s) :</string>
     <string name="timeValue">60</string>
+    <string name="welcome_content_description">Welcome Image</string>
+    <string name="onboard_btn">Let\'s Go!</string>
+    <string name="enteremail">Email</string>
+    <string name="enterpassword">Password</string>
+    <string name="create">Create Account</string>
+    <string name="signinhead">Sign in</string>
+    <string name="createaccount">Create a new Account</string>
+    <string name="accept">Accept</string>
+    <string name="getstarted">Here are ways to get started!</string>
+    <string name="username">Username</string>
 </resources>

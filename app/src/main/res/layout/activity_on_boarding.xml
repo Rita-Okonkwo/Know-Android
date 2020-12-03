@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".OnBoardingActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF">
+
+            <ImageView
+                android:id="@+id/welcome"
+                android:layout_width="120dp"
+                android:layout_height="29dp"
+                android:layout_marginStart="147dp"
+                android:layout_marginTop="102dp"
+                android:layout_marginEnd="147dp"
+                android:contentDescription="@string/welcome_content_description"
+                app:layout_constraintBottom_toTopOf="@+id/imgdesc"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/welcome" />
+
+            <ImageView
+                android:id="@+id/imgdesc"
+                android:layout_width="301dp"
+                android:layout_height="70dp"
+                android:layout_marginStart="66dp"
+                android:layout_marginTop="163dp"
+                android:layout_marginEnd="66dp"
+                android:contentDescription="know app aims to enlighten on covid19"
+                app:layout_constraintBottom_toTopOf="@+id/womanimg"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/knowonboardingdesc" />
+
+            <ImageView
+                android:id="@+id/womanimg"
+                android:layout_width="482dp"
+                android:layout_height="314dp"
+                android:layout_marginStart="-34dp"
+                android:layout_marginTop="271dp"
+                android:layout_marginEnd="-34dp"
+                android:contentDescription="Image showing a woman sitting down and holding a phone"
+                app:layout_constraintBottom_toTopOf="@+id/next"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/onboardimg" />
+
+            <Button
+                android:id="@+id/next"
+                style="@style/Widget.Know.Button"
+                android:layout_width="188dp"
+                android:layout_height="53dp"
+                android:layout_marginStart="113dp"
+                android:layout_marginTop="646dp"
+                android:layout_marginEnd="113dp"
+                android:layout_marginBottom="8dp"
+                android:accessibilityLiveRegion="polite"
+                android:background="@drawable/btnbackground"
+                android:fontFamily="@font/raleway_medium"
+                android:text="@string/onboard_btn"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

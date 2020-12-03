@@ -11,7 +11,7 @@ import com.project.know.R
 import com.project.know.databinding.VideoItemBinding
 import kotlinx.android.synthetic.main.video_item.view.*
 
-class VideoRecyclerViewAdapter(val videoList:List<VideosItem>): RecyclerView.Adapter<VideoRecyclerViewAdapter.VideoViewHolder>(), VideoStateChange {
+class VideoRecyclerViewAdapter(val videoList:List<VideosItem>, val viewModel1: VideoViewModel): RecyclerView.Adapter<VideoRecyclerViewAdapter.VideoViewHolder>(), VideoStateChange {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VideoViewHolder {
       return VideoViewHolder.from(parent)
     }
@@ -25,6 +25,7 @@ class VideoRecyclerViewAdapter(val videoList:List<VideosItem>): RecyclerView.Ada
             videoDescription.text = videoList[position].description
             url = videoList[position].video_url
             callback = this@VideoRecyclerViewAdapter
+            viewModel = viewModel1
             executePendingBindings()
         }
     }

@@ -32,13 +32,13 @@ class HomeFragment : Fragment() {
     }
 
     fun navigateToQuiz(){
-        homeBinding.quizCard.setOnClickListener {
+        homeBinding.playquiz.setOnClickListener {
             it.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToWelcomeFragment())
         }
     }
 
     fun navigateToVideos(){
-        homeBinding.videoCard.setOnClickListener {
+        homeBinding.video.setOnClickListener {
             it.findNavController().navigate(HomeFragmentDirections.actionHomeFragmentToVideoListFragment())
         }
     }

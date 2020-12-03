@@ -9,6 +9,9 @@
         <variable
             name="callback"
             type="com.project.know.ui.videoui.VideoStateChange" />
+        <variable
+            name="viewModel"
+            type="com.project.know.ui.videoui.VideoViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -34,6 +37,7 @@
                 android:layout_height="match_parent"
                 app:video_url="@{url}"
                 app:on_state_change="@{callback}"
+                app:viewModel="@{viewModel}"
                 app:resize_mode="fit"
                 app:surface_type="texture_view"
                 app:use_controller="false" />
