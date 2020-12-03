@@ -35,7 +35,7 @@ Know is a mobile application that creates awareness about covid-19 through fun q
 - Publishing and deploying
 
 ## Links
-- [API REPO](https://github.com/Rita-Okonkwo/Know-Backend) 
+- [Know Backend Repo](https://github.com/Rita-Okonkwo/Know-Backend) 
 
 ## License
 ```
